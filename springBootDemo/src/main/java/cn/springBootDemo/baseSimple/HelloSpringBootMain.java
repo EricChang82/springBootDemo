@@ -1,4 +1,4 @@
-package cn.springBootDemo;
+package cn.springBootDemo.baseSimple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
