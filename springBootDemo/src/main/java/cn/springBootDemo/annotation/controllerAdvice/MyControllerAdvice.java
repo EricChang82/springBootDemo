@@ -25,12 +25,12 @@ public class MyControllerAdvice {
         exceptionMap.put("exeMsg","捕获自定义的异常:"+ exception.getExeMessage());
         return exceptionMap;
     }
-    @GetMapping("/test")
+    @GetMapping("/annotation/test")
     public void test() throws Exception {
         System.out.println(1/0);
     }
     
-    @GetMapping("/testUdf")
+    @GetMapping("/annotation/testUdf")
     public void testUdf() throws UdfException {
         throw new UdfException("自定义异常");
 //        System.out.println(1/0);

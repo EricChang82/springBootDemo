@@ -9,7 +9,7 @@ public class BaseDemoController {
     @Value("${project.udf01}")
     private String  msg;
 //	@RequestMapping("/hello")
-    @GetMapping("/baseDemo")  
+    @GetMapping("/")  
 	public String hello() {
 		return "BaseDemoController "+msg;
 	}

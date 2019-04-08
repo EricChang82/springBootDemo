@@ -8,7 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@SpringBootApplication
+//@SpringBootApplication
 public class AnnotationMain {
 
     @SuppressWarnings("rawtypes")
