@@ -11,7 +11,7 @@ public class AnnotationController {
     @Value("${project.udf02}")
     private String msg2;
 
-    @GetMapping("/annotation")
+    @GetMapping("/annotation/value")
     public String hello() {
         return "AnnotationController: " + msg + "||" + msg2;
     }
