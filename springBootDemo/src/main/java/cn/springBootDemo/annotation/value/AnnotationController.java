@@ -1,6 +1,5 @@
 package cn.springBootDemo.annotation.value;
 
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
