@@ -20,6 +20,16 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     
+  <!-- 监控管理客户端 START-->  
+	<dependency>
+	    <groupId>de.codecentric</groupId>
+	    <artifactId>spring-boot-admin-starter-client</artifactId>
+	    <version>2.0.4</version>
+	</dependency>
+
+
+   <!-- 监控管理客户端 END-->  
+
   </dependencies>
     <build>
         <plugins>
