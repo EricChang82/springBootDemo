@@ -29,13 +29,37 @@
     </dependency>
    <!-- 支持热部署 END-->
    
-   <!-- lombok --> 
+   <!-- lombok  START--> 
       <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
     <!-- lombok  END--> 
     
+    <!-- druid数据库连接 START -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>druid-spring-boot-starter</artifactId>
+	    <version>1.1.10</version>
+	</dependency>
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-jdbc</artifactId>
+	</dependency>
+    <!-- druid数据库连接 END -->
+    
+    <!-- mybatis -->
+   <dependency>
+    <groupId>org.mybatis.spring.boot</groupId>
+    <artifactId>mybatis-spring-boot-starter</artifactId>
+    <version>1.3.2</version>
+   </dependency>
+        
+        
   <!-- 监控管理客户端 START-->  
 	<dependency>
 	    <groupId>de.codecentric</groupId>
