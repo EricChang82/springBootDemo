@@ -1,0 +1,5 @@
+@ConfigurationProperties两种方式读取
+1.类上标注@ConfigurationProperties("db")
+2.方法上标注@ConfigurationProperties("db")
+
+支持松绑定

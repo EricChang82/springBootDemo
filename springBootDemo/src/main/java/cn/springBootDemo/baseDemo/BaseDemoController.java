@@ -11,6 +11,6 @@ public class BaseDemoController {
 //	@RequestMapping("/hello")
     @GetMapping("/")  
 	public String hello() {
-		return "BaseDemoController "+msg;
+		return "启动正常===>BaseDemoController "+msg;
 	}
 }

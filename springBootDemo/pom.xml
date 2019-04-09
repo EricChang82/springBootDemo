@@ -20,6 +20,12 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     
+   <!-- lombok --> 
+      <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    <!-- lombok  END--> 
   <!-- 监控管理客户端 START-->  
 	<dependency>
 	    <groupId>de.codecentric</groupId>
@@ -27,7 +33,7 @@
 	    <version>2.0.4</version>
 	</dependency>
    <!-- 监控管理客户端 END-->  
-
+   
   </dependencies>
     <build>
         <plugins>
