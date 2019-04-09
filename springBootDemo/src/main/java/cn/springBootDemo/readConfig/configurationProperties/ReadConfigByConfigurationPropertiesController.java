@@ -26,7 +26,7 @@ public class ReadConfigByConfigurationPropertiesController {
     public String readConfig() {
         String str1= configdemo.toString();
         String str2= configdemo2.toString();
-        return str1+"\n"+str2+"dd";
+        return str1+"\n"+str2+"热部署测试";//热部署测试
 
     }
 }

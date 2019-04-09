@@ -20,12 +20,22 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     
+   <!-- 支持热部署 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>  <!-- true表示该依赖不进行传递(若有项目引用该项目，这个devtools 不传递过去) -->
+    </dependency>
+   <!-- 支持热部署 END-->
+   
    <!-- lombok --> 
       <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
     <!-- lombok  END--> 
+    
   <!-- 监控管理客户端 START-->  
 	<dependency>
 	    <groupId>de.codecentric</groupId>
