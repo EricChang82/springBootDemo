@@ -1,4 +1,4 @@
-package cn.springBootDemo.annotation.controllerAdvice;
+package cn.springBootDemo.annotation.exceptionProcess;
 
 import java.util.HashMap;
 

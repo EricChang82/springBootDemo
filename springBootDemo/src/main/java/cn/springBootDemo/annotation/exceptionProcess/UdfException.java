@@ -6,7 +6,7 @@
  * Modified by: 
  * Version: 1.0
  */
-package cn.springBootDemo.annotation.controllerAdvice;
+package cn.springBootDemo.annotation.exceptionProcess;
 
 /**
  * Project Name:springBootDemo
