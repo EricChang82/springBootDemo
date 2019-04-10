@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:annotation-config/>
+   
+ <bean id="helloWorld" class="cn.spring.bean.BeanDemo"  >
+<!--    <bean id="helloWorld" class="cn.spring.bean.BeanDemo" scope="singleton"> -->
+<!--    <bean id="helloWorld" class="cn.spring.bean.BeanDemo" scope="prototype"> -->
+<!--    <bean id="helloWorld" class="cn.spring.bean.BeanDemo"  init-method="init" destroy-method="destroy"> -->
+<!--        <property name="message" value="Hello World!- by xml" /> -->
+   </bean>
+   
+<!--    <bean id="helloWorld2" class="cn.spring.bean.BeanDemo"  init-method="init" destroy-method="destroy">
+       <property name="message" value="Hello World!- by xml" />
+   </bean> -->
+   
+   <!--   Bean 后置处理器 -->
+<!--    <bean class="cn.spring.bean.BeanPostProcessor.postProcessorT1" /> -->
+<!--    <bean class="cn.spring.bean.BeanPostProcessor.postProcessorT2" /> -->
+ 
+ 
+    <!-- Definition for textEditor bean without constructor-arg  -->
+   <bean id="textEditor" class="cn.spring.bean.TextEditor">
+   </bean>
+
+   <!-- Definition for spellChecker bean -->
+
+   
+   
+</beans>

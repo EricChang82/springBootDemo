@@ -1,0 +1,1 @@
+读取xml,即使用spring的配置文件方式(非springBoot注解方式)
