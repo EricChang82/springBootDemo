@@ -3,7 +3,7 @@ package cn.springBootDemo.listener;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
-//@Component
+//@Component 方式2 不推荐，较麻烦
 public class TestListenerCom  {
     
     @Bean
