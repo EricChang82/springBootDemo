@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class InterceptorMain extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
