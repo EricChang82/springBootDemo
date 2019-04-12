@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet(urlPatterns="/testServlet")  方式1
+//@WebServlet(urlPatterns="/testServlet")  方式1 (推荐)
 public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
