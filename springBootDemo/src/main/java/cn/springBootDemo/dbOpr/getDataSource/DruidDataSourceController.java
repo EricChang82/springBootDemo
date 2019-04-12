@@ -21,7 +21,7 @@ public class DruidDataSourceController {
     @ResponseBody
     @GetMapping("/dataSource/printDataSource")
     public String printDataSource() throws SQLException {
-        return dataSource.getConnection()+"\n"+dataSource;
+        return dataSource.getConnection()+"<br>"+dataSource;
     }
     
 }
