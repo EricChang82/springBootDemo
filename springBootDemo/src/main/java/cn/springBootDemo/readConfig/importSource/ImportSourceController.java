@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.dataModel.BeanDemo;
 
-@RestController
+//@RestController
 public class ImportSourceController {
-    @Autowired  
+//    @Autowired  
     private BeanDemo beanDemo;  //通过@ImportResource 导入的xml配置进行获取
     
     @GetMapping("/importSourceTest")  

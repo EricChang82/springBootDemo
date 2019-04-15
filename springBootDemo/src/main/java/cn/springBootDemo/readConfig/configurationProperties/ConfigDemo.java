@@ -27,7 +27,8 @@ import lombok.ToString;
  * Version: 1.0
  */
 @Setter@Getter
-@Component@ToString  //通过lombok运行时自动生成方法
+@Component
+@ToString  //通过lombok运行时自动生成方法
 //@ConfigurationProperties(prefix="db")或
 @ConfigurationProperties("db")
 public class ConfigDemo {

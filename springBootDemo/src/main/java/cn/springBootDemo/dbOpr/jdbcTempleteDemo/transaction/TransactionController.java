@@ -27,9 +27,12 @@ public class TransactionController {
     @GetMapping("/dbOpr/transaction/transactionTest")
     public void insertStudent() throws SQLException {
         String SQL = "insert into Student (name, age) values (?, ?)";
-        jdbcTemplateObject.update(SQL, "aaa", 1);
+        jdbcTemplateObject.update(SQL, "ABC", 1);
         System.out.println(1 / 0); //抛出异常
         //        System.out.println("111");
+        
+        String SQ11 = "insert into Student (name, age) values (?, ?)";
+        jdbcTemplateObject.update(SQ11, "123", 1);
     }
 
 }
