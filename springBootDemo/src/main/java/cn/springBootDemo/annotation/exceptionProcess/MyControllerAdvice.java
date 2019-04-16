@@ -25,7 +25,7 @@ public class MyControllerAdvice {
         exceptionMap.put("exeMsg","捕获自定义的异常:"+ exception.getExeMessage());
         return exceptionMap;
     }
-    @GetMapping("/annotation/test")
+    @GetMapping("/annotation/test") 
     public void test() throws Exception {
         System.out.println(1/0);
     }
