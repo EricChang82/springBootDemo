@@ -37,7 +37,7 @@ public class HelloJob implements Job{
     public void execute(JobExecutionContext context) throws JobExecutionException {
         count++;
         context.getJobDetail().getJobDataMap().put("count", count);  
-        Util.print("第"+count+"次,执行job,"+"时间:"+new Date().toString());
+        Util.print("第"+count+"次执行job,"+"时间:"+new Date().toString());
         
        
         
