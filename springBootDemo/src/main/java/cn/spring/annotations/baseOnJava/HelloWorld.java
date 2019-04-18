@@ -1,4 +1,7 @@
 package cn.spring.annotations.baseOnJava;
+
+import cn.Util;
+
 public class HelloWorld {
    private String message;
 
@@ -7,6 +10,6 @@ public class HelloWorld {
    }
 
    public void getMessage(){
-      System.out.println("Your Message : " + message);
+      Util.print("Your Message : " + message);
    }
 }

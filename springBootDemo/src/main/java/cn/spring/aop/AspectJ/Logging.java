@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+import cn.Util;
+
 @Aspect
 public class Logging {
    /** Following is the definition for a pointcut to select
@@ -18,7 +20,7 @@ public class Logging {
 
    @Before("selectAll()")
    public void beforeAdvice(){
-      System.out.println("beforeAdvice");
+      Util.print("beforeAdvice");
    }
    /** 
     * This is the method which I would like to execute
@@ -26,7 +28,7 @@ public class Logging {
     */
    @After("selectAll()")
    public void afterAdvice(){
-      System.out.println("afterAdvice");
+      Util.print("afterAdvice");
    }
    /** 
     * This is the method which I would like to execute
@@ -34,7 +36,7 @@ public class Logging {
     */
    @AfterReturning(pointcut = "selectAll()", returning="retVal")
    public void afterReturningAdvice(Object retVal){
-      System.out.println("afterReturningAdvice:" + retVal.toString() );
+      Util.print("afterReturningAdvice:" + retVal.toString() );
    }
    /**
     * This is the method which I would like to execute
@@ -42,6 +44,6 @@ public class Logging {
     */
    @AfterThrowing(pointcut = "selectAll()", throwing = "ex")
    public void AfterThrowingAdvice(IllegalArgumentException ex){
-      System.out.println("AfterThrowingAdvice:" + ex.toString());   
+      Util.print("AfterThrowingAdvice:" + ex.toString());   
    }  
 }

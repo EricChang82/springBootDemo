@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import cn.Util;
+
 /**
  * @author changle 
  * Create Time: 2019年4月10日 
@@ -17,7 +19,7 @@ public class InterceptorDemo extends HandlerInterceptorAdapter{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        System.out.println("拦截器 InterceptorDemo action ");
+        Util.print("拦截器 InterceptorDemo action ");
         return true;
     }
 }

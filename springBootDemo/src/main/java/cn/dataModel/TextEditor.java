@@ -2,6 +2,8 @@ package cn.dataModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import cn.Util;
 @Component
 public class TextEditor {
     @Autowired
@@ -17,7 +19,7 @@ public class TextEditor {
 
 
    public void spellCheck() {
-       System.out.println("1111111");
+       Util.print("1111111");
 //      spellChecker3332.checkSpelling();
    }
    

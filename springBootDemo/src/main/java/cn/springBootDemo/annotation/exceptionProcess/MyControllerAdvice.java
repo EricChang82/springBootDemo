@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import cn.Util;
 @RestController
 @ControllerAdvice
 public class MyControllerAdvice {
@@ -27,13 +29,13 @@ public class MyControllerAdvice {
     }
     @GetMapping("/annotation/test") 
     public void test() throws Exception {
-        System.out.println(1/0);
+        Util.print(1/0);
     }
     
     @GetMapping("/annotation/testUdf")
     public void testUdf() throws UdfException {
         throw new UdfException("自定义异常");
-//        System.out.println(1/0);
+//        Util.print(1/0);
     }
     
 }

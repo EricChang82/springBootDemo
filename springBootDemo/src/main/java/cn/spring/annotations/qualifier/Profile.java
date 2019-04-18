@@ -3,17 +3,19 @@ package cn.spring.annotations.qualifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import cn.Util;
+
 public class Profile {
    @Autowired
    @Qualifier("student2")
    private Student student;
    public Profile(){
-      System.out.println("Inside Profile constructor." );
+      Util.print("Inside Profile constructor." );
    }
    public void printAge() {
-      System.out.println("Age : " + student.getAge() );
+      Util.print("Age : " + student.getAge() );
    }
    public void printName() {
-      System.out.println("Name : " + student.getName() );
+      Util.print("Name : " + student.getName() );
    }
 }

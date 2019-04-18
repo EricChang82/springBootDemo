@@ -11,6 +11,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
+import cn.Util;
+
 /**
  * @author changle 
  * Create Time: 2019年4月10日 
@@ -26,7 +28,7 @@ public class TestFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-       System.out.println("doFilter test");
+       Util.print("doFilter test");
        chain.doFilter(request, response);//放行请求
     }
 

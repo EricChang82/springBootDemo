@@ -6,6 +6,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import cn.Util;
+
 public class StudentJDBCTemplate implements StudentDAO {
    private DataSource dataSource;
    private JdbcTemplate jdbcTemplateObject; 
@@ -16,7 +18,7 @@ public class StudentJDBCTemplate implements StudentDAO {
    public void create(String name, Integer age) {
       String SQL = "insert into Student (name, age) values (?, ?)";     
       jdbcTemplateObject.update( SQL, name, age);
-      System.out.println("Created Record Name = " + name + " Age = " + age);
+      Util.print("Created Record Name = " + name + " Age = " + age);
       return;
    }
    public Student getStudent(Integer id) {
@@ -33,13 +35,13 @@ public class StudentJDBCTemplate implements StudentDAO {
    public void delete(Integer id){
       String SQL = "delete from Student where id = ?";
       jdbcTemplateObject.update(SQL, id);
-      System.out.println("Deleted Record with ID = " + id );
+      Util.print("Deleted Record with ID = " + id );
       return;
    }
    public void update(Integer id, Integer age){
       String SQL = "update Student set age = ? where id = ?";
       jdbcTemplateObject.update(SQL, age, id);
-      System.out.println("Updated Record with ID = " + id );
+      Util.print("Updated Record with ID = " + id );
       return;
    }
 }

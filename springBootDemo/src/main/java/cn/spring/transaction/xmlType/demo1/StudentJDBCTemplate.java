@@ -7,6 +7,8 @@ import javax.sql.DataSource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import cn.Util;
+
 public class StudentJDBCTemplate implements StudentDAO{
    private JdbcTemplate jdbcTemplateObject;
    public void setDataSource(DataSource dataSource) {
@@ -22,11 +24,11 @@ public class StudentJDBCTemplate implements StudentDAO{
             int sid = jdbcTemplateObject.queryForObject(SQL2, Integer.class);
             String SQL3 = "insert into Marks(sid, marks, year) " + "values (?, ?, ?)";
             jdbcTemplateObject.update(SQL3, sid, marks, year);
-            System.out.println("Created Name = " + name + ", Age = " + age);
+            Util.print("Created Name = " + name + ", Age = " + age);
             // to simulate the exception.
             throw new RuntimeException("抛出异常，事务回滚");
         } catch (DataAccessException e) {
-            System.out.println("Error in creating record, rolling back");
+            Util.print("Error in creating record, rolling back");
             throw e;
         }
     }

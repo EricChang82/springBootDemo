@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.Util;
+
 /**
  * @author changle 
  * Create Time: 2019年4月9日 
@@ -28,8 +30,8 @@ public class TransactionController {
     public void insertStudent() throws SQLException {
         String SQL = "insert into Student (name, age) values (?, ?)";
         jdbcTemplateObject.update(SQL, "ABC", 1);
-        System.out.println(1 / 0); //抛出异常
-        //        System.out.println("111");
+        Util.print(1 / 0); //抛出异常
+        //        Util.print("111");
         
         String SQ11 = "insert into Student (name, age) values (?, ?)";
         jdbcTemplateObject.update(SQ11, "123", 1);

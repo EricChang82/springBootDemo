@@ -11,6 +11,8 @@ package cn.spring.annotations.baseOnJava.importAnnotation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import cn.Util;
+
 /**
  * Project Name:devProject
  * @author changle
@@ -32,8 +34,8 @@ public class MainApp {
        A a = ctx.getBean(A.class);
        B b = ctx.getBean(B.class);
        
-       System.out.println(a);
-       System.out.println(b);
+       Util.print(a);
+       Util.print(b);
     }
 }
 

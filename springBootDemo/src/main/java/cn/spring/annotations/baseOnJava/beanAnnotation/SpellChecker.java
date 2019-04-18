@@ -1,10 +1,13 @@
 package cn.spring.annotations.baseOnJava.beanAnnotation;
+
+import cn.Util;
+
 public class SpellChecker {
    public SpellChecker(){
-      System.out.println("Inside SpellChecker constructor." );
+      Util.print("Inside SpellChecker constructor." );
    }
    public void checkSpelling(){
-      System.out.println("Inside checkSpelling." );
+      Util.print("Inside checkSpelling." );
    }
 
 }

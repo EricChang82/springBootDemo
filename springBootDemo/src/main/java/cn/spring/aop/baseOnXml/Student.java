@@ -1,4 +1,7 @@
 package cn.spring.aop.baseOnXml;
+
+import cn.Util;
+
 public class Student {
    private Integer age;
    private String name;
@@ -6,18 +9,18 @@ public class Student {
       this.age = age;
    }
    public Integer getAge() {
-      System.out.println("Age : " + age );
+      Util.print("Age : " + age );
       return age;
    }
    public void setName(String name) {
       this.name = name;
    }
    public String getName() {
-      System.out.println("Name : " + name );
+      Util.print("Name : " + name );
       return name;
    }  
    public void printThrowException(){
-       System.out.println("Exception raised");
+       Util.print("Exception raised");
        throw new IllegalArgumentException();
    }
 }

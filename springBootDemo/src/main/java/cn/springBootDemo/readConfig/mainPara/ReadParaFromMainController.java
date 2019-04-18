@@ -17,7 +17,7 @@ public class ReadParaFromMainController {
     
     @GetMapping("/readConfig/mainPara")
     public String  readConfig() {
-//        System.out.println(applicationarguments.getNonOptionArgs());
+//        Util.print(applicationarguments.getNonOptionArgs());
         return applicationarguments.getNonOptionArgs().toString();
         
     }

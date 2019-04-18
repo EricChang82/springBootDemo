@@ -1,9 +1,9 @@
 package cn.spring.jdbc.methotDemo.update;
 
-import java.util.List;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import cn.Util;
 import cn.spring.jdbc.methotDemo.Student;
 import cn.spring.jdbc.methotDemo.StudentJDBCTemplate;
 
@@ -19,6 +19,6 @@ public class MainApp {
         Student student = studentJDBCTemplate.getStudent(2);
         System.out.print("ID : " + student.getId());
         System.out.print(", Name : " + student.getName());
-        System.out.println(", Age : " + student.getAge());
+        Util.print(", Age : " + student.getAge());
     }
 }
