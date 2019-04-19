@@ -30,45 +30,46 @@ public class HelloJob implements Job{
     private String message;
     private Integer count;
     public HelloJob() {
-        Util.print("HelloJob 构造函数被调用，创建了新的实例");
+//        Util.print("HelloJob 构造函数被调用，创建了新的实例");
     }
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         count++;
         context.getJobDetail().getJobDataMap().put("count", count);  
-        Util.print("第"+count+"次执行job,"+"时间:"+new Date().toString());
+        Util.print("第"+count+"次执行job,"+"时间:"+Util.getCurrentTimeStr());
         
        
         
         //#1S-context相关输出-S
         //#1S-jobDetail内容-S
         JobKey jobKey = context.getJobDetail().getKey(); //jobkey
-        Util.print("execute:"+"Job名称:"+jobKey.getName());
-        Util.print("execute:"+"Job组的名称:"+jobKey.getGroup());//若没有指定组名,默认值为DEFAULT
-        Util.print("execute:"+"任务类"+context.getJobDetail().getJobClass().getName());
+//        Util.print("execute:"+"Job名称:"+jobKey.getName());
+//        Util.print("execute:"+"Job组的名称:"+jobKey.getGroup());//若没有指定组名,默认值为DEFAULT
+//        Util.print("execute:"+"任务类"+context.getJobDetail().getJobClass().getName());
         //#2E-jobDetail内容-E 
         
         //#1S-获取job传参 -S
         JobDataMap dataMap = context.getJobDetail().getJobDataMap();
-        Util.print("execute:"+"Job message:"+dataMap.getString("message"));
+//        Util.print("execute:"+"Job message:"+dataMap.getString("message"));
         //#2E-获取job传参-E 
         
         //#1S-获取trigger传参-S
         JobDataMap triggerDataMap = context.getTrigger().getJobDataMap();
-        Util.print("execute:"+"trigger message:"+triggerDataMap.getString("message"));
+//        Util.print("execute:"+"trigger message:"+triggerDataMap.getString("message"));
         //#2E-获取trigger传参-E 
         
         //#1S-triggerKey-S
         TriggerKey triggerKey = context.getTrigger().getKey();//triggerKey
-        Util.print("execute:"+"trigger名称:"+triggerKey.getName());
+//        Util.print("execute:"+"trigger名称:"+triggerKey.getName());
         //#2E-triggerKey-E 
         
         //#2E-context相关输出-E 
         
-        Util.print("通过setter方法直接获取的message："+message);//同名key的话，trigger会覆盖job的传参
+//        Util.print("job通过setter方法直接获取的message："+message);//同名key的话，trigger会覆盖job的传参
         
     }
+
 
     /**
      * @return Returns the message.
