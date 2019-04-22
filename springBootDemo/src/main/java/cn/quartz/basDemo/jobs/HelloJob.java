@@ -44,7 +44,7 @@ public class HelloJob implements Job{
         //#1S-context相关输出-S
         //#1S-jobDetail内容-S
         JobKey jobKey = context.getJobDetail().getKey(); //jobkey
-//        Util.print("execute:"+"Job名称:"+jobKey.getName());
+//        Util.print("execute:"+"Job名称:"+jobKey.getName());·
 //        Util.print("execute:"+"Job组的名称:"+jobKey.getGroup());//若没有指定组名,默认值为DEFAULT
 //        Util.print("execute:"+"任务类"+context.getJobDetail().getJobClass().getName());
         //#2E-jobDetail内容-E 
