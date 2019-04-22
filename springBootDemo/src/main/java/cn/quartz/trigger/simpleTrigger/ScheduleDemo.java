@@ -8,7 +8,6 @@
  */
 package cn.quartz.trigger.simpleTrigger;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.quartz.JobBuilder;
@@ -18,8 +17,6 @@ import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
-
-import cn.Util;
 
 /**
  * @author changle 

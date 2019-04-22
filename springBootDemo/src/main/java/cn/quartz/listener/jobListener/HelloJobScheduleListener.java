@@ -18,8 +18,6 @@ import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 
-import cn.quartz.trigger.simpleTrigger.HelloJob;
-
 /**
  * @author changle 
  * Create Time: 2019年4月18日 

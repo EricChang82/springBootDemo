@@ -8,8 +8,6 @@
  */
 package cn.quartz.listener.jobListener;
 
-import java.util.Date;
-
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;

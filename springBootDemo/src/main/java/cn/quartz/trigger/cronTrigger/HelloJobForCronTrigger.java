@@ -8,7 +8,6 @@
  */
 package cn.quartz.trigger.cronTrigger;
 
-import org.quartz.DateBuilder;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
