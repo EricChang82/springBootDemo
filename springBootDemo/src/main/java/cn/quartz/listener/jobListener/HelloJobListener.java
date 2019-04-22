@@ -6,7 +6,7 @@
  * Modified by: 
  * Version: 1.0
  */
-package cn.quartz.basDemo.jobs;
+package cn.quartz.listener.jobListener;
 
 import java.util.Date;
 
@@ -26,10 +26,10 @@ import cn.Util;
  * Purpose:
  */
 @PersistJobDataAfterExecution  //多次执行job时，会对job进行持久化，保护一个job信息.job对象还是会创建多次,jobDataMap会被持久化
-public class HelloJob implements Job{
+public class HelloJobListener implements Job{
     private String message;
     private Integer count;
-    public HelloJob() {
+    public HelloJobListener() {
 //        Util.print("HelloJob 构造函数被调用，创建了新的实例");
     }
 

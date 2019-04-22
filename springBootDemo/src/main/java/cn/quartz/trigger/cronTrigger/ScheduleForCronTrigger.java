@@ -6,21 +6,17 @@
  * Modified by: 
  * Version: 1.0
  */
-package cn.quartz.basDemo.schedule;
+package cn.quartz.trigger.cronTrigger;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
-import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
-
-import cn.Util;
-import cn.quartz.basDemo.jobs.HelloJob;
 
 /**
  * @author changle 
@@ -31,18 +27,17 @@ import cn.quartz.basDemo.jobs.HelloJob;
  * 3.相关参数传递
  */
 
-public class ScheduleDemo {
+public class ScheduleForCronTrigger {
     public static void main(String[] args) throws Exception {
 
         //调度器(Schedule)
         Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
         //任务实例(JobDetail)
-        JobDetail jobDetail = JobBuilder.newJob(HelloJob.class) //加载任务类(与hellJob进行绑定)
+        JobDetail jobDetail = JobBuilder.newJob(HelloJobForCronTrigger.class) //加载任务类(与hellJob进行绑定)
                 .withIdentity("job1", "group1")//参数1：任务的名称(唯一实例) 参数2:任务组的名称
                 .usingJobData("message", "参数from JobDetail")
                 .usingJobData("count", 0)
-                
                 .build();//返回JobDetail(存放job相关变量以及可以设置相关属性)
         //#1S-相关输出-S
 //        Util.print("Job名称:" + jobDetail.getKey().getName());
@@ -53,7 +48,8 @@ public class ScheduleDemo {
         //触发器(Trigger)
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1") //参数1：触发器的名称(唯一实例) 参数2:触发器组的名称
                 .startNow()//马上启动
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule().repeatSecondlyForever(2))//每5秒重复执行一次
+                .withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
+                .usingJobData("triggerMessage", "参数triggerMessage")
                 .usingJobData("message", "参数from trigger").build();
 
         // 让调度器关联任务和触发器，保证按调度器定义的条件执行
@@ -63,16 +59,16 @@ public class ScheduleDemo {
         //启动
         scheduler.start();
         
-        //挂起
-        scheduler.standby();
+//        //挂起
+//        scheduler.standby();
         
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
 //        
 //        //重启
-        scheduler.start();
+//        scheduler.start();
         
         //#1S-关闭-S
-        scheduler.shutdown();//默认false
+//        scheduler.shutdown();//默认false
         //scheduler.shutdown(false);//直接关闭
         //scheduler.shutdown(true);//等待执行完成后再关闭
         //#2E-关闭-E 
