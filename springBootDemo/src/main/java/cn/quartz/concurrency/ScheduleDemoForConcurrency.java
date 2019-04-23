@@ -57,7 +57,7 @@ public class ScheduleDemoForConcurrency {
         //触发器(Trigger)
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity(triggerId, "group1") //参数1：触发器的名称(唯一实例) 参数2:触发器组的名称
                 .startNow()//马上启动
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule().repeatSecondlyForever(jobInterval))//每2秒重复执行一次
+                .withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(jobInterval))//每2秒重复执行一次
                 .build();
         //关联
         scheduler.scheduleJob(jobDetail, trigger);

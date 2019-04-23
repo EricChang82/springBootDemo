@@ -18,6 +18,8 @@ import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 
+import cn.Util;
+
 /**
  * @author changle 
  * Create Time: 2019年4月18日 
@@ -48,14 +50,14 @@ public class ScheduleDemo {
         //触发器(Trigger)
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1") //参数1：触发器的名称(唯一实例) 参数2:触发器组的名称
                 .startNow()//马上启动
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule().repeatSecondlyForever(2))//每2秒重复执行一次
+                .withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(2))//每2秒重复执行一次
                 .usingJobData("triggerMessage", "参数triggerMessage")
                 .usingJobData("message", "参数from trigger").build();
 
         // 让调度器关联任务和触发器，保证按调度器定义的条件执行
         Date date =  //返回的开始时间
                 scheduler.scheduleJob(jobDetail, trigger); //每次执行execute会创建新的实例，调用完成后关联的job对象会被释放。GC回收
-//        Util.printDateTime(date);
+        Util.printDateTime(date);
         //启动
         scheduler.start();
         

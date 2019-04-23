@@ -29,7 +29,7 @@ public class PriorityDemo {
         //触发器(Trigger)--优先级1
         Trigger trigger1 = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1") //参数1：触发器的名称(唯一实例) 参数2:触发器组的名称
                 .startAt(startTime)
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule().repeatSecondlyForever(5))
+                .withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(5))
                 .forJob(jobDetail1)
                 .withPriority(10)//设置优先级
                 .usingJobData("triggerMessage", "触发器-优先级1")
@@ -37,10 +37,10 @@ public class PriorityDemo {
         //触发器(Trigger)--优先级2
         Trigger trigger2 = TriggerBuilder.newTrigger().withIdentity("trigger2", "group1") //参数1：触发器的名称(唯一实例) 参数2:触发器组的名称
                 .startAt(startTime)
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule().repeatSecondlyForever(5))
+                .withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(5))
                 .forJob(jobDetail1)
                 .usingJobData("triggerMessage", "触发器-优先级2")
-                .withPriority(2)
+                .withPriority(2)//设置优先级
                 .build();
         //调度
         scheduler.scheduleJob(jobDetail1,trigger1); 

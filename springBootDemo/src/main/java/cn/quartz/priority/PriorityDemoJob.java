@@ -8,14 +8,11 @@
  */
 package cn.quartz.priority;
 
-import org.quartz.DateBuilder;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 import cn.Util;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @author changle 

@@ -8,8 +8,6 @@
  */
 package cn.quartz.trigger.cronTrigger;
 
-import java.util.Date;
-
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
@@ -53,7 +51,7 @@ public class ScheduleForCronTrigger {
                 .usingJobData("message", "参数from trigger").build();
 
         // 让调度器关联任务和触发器，保证按调度器定义的条件执行
-        Date date =  //返回的开始时间
+//        Date date =  //返回的开始时间
                 scheduler.scheduleJob(jobDetail, trigger); //每次执行execute会创建新的实例，调用完成后关联的job对象会被释放。GC回收
 //        Util.printDateTime(date);
         //启动
