@@ -29,7 +29,7 @@ import org.quartz.impl.StdSchedulerFactory;
 public class ScheduleDemoForConcurrency {
     public static void main(String[] args) throws Exception {
 
-        startJob("job1", "trigger1", "job--1--参数", 1);
+        startJob("job1", "trigger1", "job--1--参数", 2);
 //        startJob("job2", "trigger2", "job--2--参数", 1);
         
         

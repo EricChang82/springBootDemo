@@ -1,0 +1,4 @@
+优先测试：
+数字越大优先级越高
+准备：
+org.quartz.threadPool.threadCount 设置为1
