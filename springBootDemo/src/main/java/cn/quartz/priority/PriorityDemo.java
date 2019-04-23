@@ -10,7 +10,12 @@ import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
-
+/**
+ * 
+ * @author changle 
+ * Create Time: 2019年4月23日 
+ * Purpose:测试前先将org.quartz.threadPool.threadCount 设置为1
+ */
 public class PriorityDemo {
     public static void main(String[] args) throws Exception {
 
