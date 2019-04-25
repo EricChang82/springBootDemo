@@ -22,7 +22,6 @@ public class GetMongoDBConnection {
     public static MongoDatabase getConnection(String ipAddress, int port, String collection) {
         // 连接到 mongodb 服务
         MongoClient mongoClient = new MongoClient(ipAddress, port);
-
         // 连接到数据库
         MongoDatabase mongoDatabase = mongoClient.getDatabase(collection);
         
