@@ -2,7 +2,7 @@ package cn.java.collectionTest.treeSet;
 
 import java.util.TreeSet;
 
-import cn.java.Util;
+import cn.Util;
 
 public class TreeSetTest implements Comparable<Object>{
      public static void main(String[] args) {

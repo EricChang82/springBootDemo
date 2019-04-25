@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import cn.java.Util;
+import cn.Util;
 
 public class MapTest{
      public static void main(String[] args) {

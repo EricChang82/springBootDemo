@@ -81,6 +81,13 @@
 		</dependency>
 		<!-- quartz END -->
 
+		<!-- mongoDB-->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver</artifactId>
+		</dependency>
+		<!-- mongoDB -->
+
 	</dependencies>
 	<build>
 		<plugins>

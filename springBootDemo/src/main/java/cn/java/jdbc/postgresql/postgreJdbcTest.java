@@ -13,7 +13,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import cn.java.Util;
+import cn.Util;
 
 /**
  * Project Name:devProject
