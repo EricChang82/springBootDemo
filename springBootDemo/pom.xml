@@ -81,12 +81,20 @@
 		</dependency>
 		<!-- quartz END -->
 
-		<!-- mongoDB-->
+		<!-- mongoDB -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongodb-driver</artifactId>
 		</dependency>
 		<!-- mongoDB -->
+
+		<!-- Zookeeper -->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.14</version>
+		</dependency>
+		<!-- Zookeeper -->
 
 	</dependencies>
 	<build>
