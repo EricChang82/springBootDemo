@@ -8,7 +8,7 @@ import cn.Util;
 @Component
 public class BeanDemo {
    private String message;
-   @Required
+//   @Required
    public void setMessage(String message){
       this.message  = message;
    }
