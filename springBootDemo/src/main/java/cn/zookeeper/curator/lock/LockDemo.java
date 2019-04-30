@@ -1,4 +1,4 @@
-package cn.zookeeper.lock;
+package cn.zookeeper.curator.lock;
 
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;

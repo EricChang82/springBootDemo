@@ -1,4 +1,4 @@
-package cn.zookeeper.lock;
+package cn.zookeeper.curator.lock;
 public class Product {
 	// 商品数量,这里默认共有8件商品
 	private static int number = 5;

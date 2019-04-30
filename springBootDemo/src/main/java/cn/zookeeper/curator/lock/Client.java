@@ -1,4 +1,4 @@
-package cn.zookeeper.lock;
+package cn.zookeeper.curator.lock;
 public class Client {
 	/*
 	 * 抢购商品的方法 
