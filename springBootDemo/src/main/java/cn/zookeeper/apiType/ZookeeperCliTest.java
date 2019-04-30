@@ -35,9 +35,9 @@ public class ZookeeperCliTest {
         Thread.sleep(Integer.MAX_VALUE);
         
         //        //创建节点
-                if(ZNodeOperation.createZNode(rootPath,"<父>父节点数据")){
-                    System.out.println("节点 [ " +rootPath + " ],数据 [ " + ZNodeOperation.readData(rootPath)+" ]");
-                }
+//                if(ZNodeOperation.createZNode(rootPath,"<父>父节点数据")){
+//                    System.out.println("节点 [ " +rootPath + " ],数据 [ " + ZNodeOperation.readData(rootPath)+" ]");
+//                }
         // 
         //        // 创建子节点, 读取 + 删除
         //        if ( ZNodeOperation.createZNode( childPath1, "<父-子(1)>节点数据" ) ) {

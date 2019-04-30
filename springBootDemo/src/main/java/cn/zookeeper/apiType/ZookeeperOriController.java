@@ -1,5 +1,7 @@
 package cn.zookeeper.apiType;
 
+import java.util.List;
+
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooDefs;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.Util;
 import cn.zookeeper.apiType.watcher.Watcher1;
 
 @RestController
@@ -109,5 +112,31 @@ public class ZookeeperOriController {
         }
         return "读取失败";
     }
-
+    @GetMapping("/updateNodeData/{path}/{data}")
+    public String updateNodeData(@PathVariable("path") String path,@PathVariable("data") String data){
+        try {
+            if (zooKeeper == null) {
+                getConnection();
+            }
+            Stat stat = zooKeeper.setData(getPath(path),data.getBytes(),-1);
+            Util.print("更新节点数据成功，path:" + path+", stat:" + stat);
+            return  "更新成功";
+        } catch (Exception e) {
+           e.printStackTrace();
+        } 
+        return "更新失败";
+    }
+    @GetMapping("/getChild/{path}")
+    public String getChild(String path){
+        try {
+            List<String> list = zooKeeper.getChildren(getPath(path),false);
+            if(list.isEmpty()){
+                Util.print(path + "的路径下没有节点");
+            }
+            return "子节点为："+list.toString();
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return "读取失败";
+         } 
+    }
 }
