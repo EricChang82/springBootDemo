@@ -127,8 +127,11 @@ public class ZookeeperOriController {
         return "更新失败";
     }
     @GetMapping("/getChild/{path}")
-    public String getChild(String path){
+    public String getChild(@PathVariable("path") String path){
         try {
+            if (zooKeeper == null) {
+                getConnection();
+            }
             List<String> list = zooKeeper.getChildren(getPath(path),false);
             if(list.isEmpty()){
                 Util.print(path + "的路径下没有节点");
