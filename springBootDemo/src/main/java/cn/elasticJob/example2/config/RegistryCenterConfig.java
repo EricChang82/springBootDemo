@@ -1,5 +1,5 @@
 
-package cn.elasticJob.example2;
+package cn.elasticJob.example2.config;
 
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;

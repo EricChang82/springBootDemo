@@ -1,5 +1,5 @@
 
-package cn.elasticJob.example2;
+package cn.elasticJob.example2.job;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

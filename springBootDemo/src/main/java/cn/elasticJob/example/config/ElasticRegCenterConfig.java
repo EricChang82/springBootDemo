@@ -1,4 +1,4 @@
-package cn.elasticJob.example.dalaoyang.config;
+package cn.elasticJob.example.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
