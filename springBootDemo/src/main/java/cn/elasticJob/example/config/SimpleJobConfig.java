@@ -54,6 +54,7 @@ public class SimpleJobConfig {
 
     @Bean
     public JobScheduler simpleJobScheduler2(final SimpleJob simpleJob2, @Value("${simpleJob.cron}") final String cron, @Value("${simpleJob.shardingTotalCount}") final int shardingTotalCount, @Value("${simpleJob.shardingItemParameters}") final String shardingItemParameters) {
+       
         //获得litejobconfiguration
         LiteJobConfiguration litejobconfiguration = getLiteJobConfiguration(simpleJob2.getClass(), cron, shardingTotalCount, shardingItemParameters);
 
@@ -75,8 +76,12 @@ public class SimpleJobConfig {
     private LiteJobConfiguration getLiteJobConfiguration(final Class<? extends SimpleJob> jobClass, final String cron, final int shardingTotalCount, final String shardingItemParameters) {
 
         //获得JobCoreConfiguration
-        JobCoreConfiguration jobcoreconfiguration = JobCoreConfiguration.newBuilder(jobClass.getName(), cron, shardingTotalCount).shardingItemParameters(shardingItemParameters).build();
-
+        JobCoreConfiguration jobcoreconfiguration = JobCoreConfiguration
+                    .newBuilder(jobClass.getName(), cron, shardingTotalCount)
+                    .shardingItemParameters(shardingItemParameters)
+                    .failover(true)  //是否开启任务执行失效转移，开启表示如果作业在一次任务执行中途宕机，允许将该次未完成的任务在另一作业节点上补偿执行
+                    .description("作业描述")
+                    .build();
         //获得SimpleJobConfiguration 
         SimpleJobConfiguration simplejobconfiguration = new SimpleJobConfiguration(jobcoreconfiguration, jobClass.getCanonicalName());
 
