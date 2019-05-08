@@ -1,5 +1,5 @@
 
-package cn.elasticJob.example2;
+package cn.elasticJob.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,12 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Purpose:官方demo
  */
 @SpringBootApplication
-public class Example2 {
+public class ElasticJobBootMain {
     
     // CHECKSTYLE:OFF
     public static void main(final String[] args) {
     // CHECKSTYLE:ON
 //        EmbedZookeeperServer.start(6181);
-        SpringApplication.run(Example2.class, args);
+        SpringApplication.run(ElasticJobBootMain.class, args);
     }
 }
