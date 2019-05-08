@@ -3,6 +3,7 @@ package cn.elasticJob.example.config;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +22,7 @@ import cn.elasticJob.example.job.SpringSimpleJob2;
 @Configuration
 public class SimpleJobConfig {
 
-    @Resource
+    @Resource  //或@Autowired
     private ZookeeperRegistryCenter regCenter;
 
     //    @Resource
