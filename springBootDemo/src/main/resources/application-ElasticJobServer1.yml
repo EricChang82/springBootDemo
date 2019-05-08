@@ -15,7 +15,3 @@ dataflowJob:
   cron: 0/5 * * * * ?
   shardingTotalCount: 3
   shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
-
-spring:
-  profiles:
-    active: dev
