@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author changle 
  * Create Time: 2019年5月7日 
- * Purpose:官方demo
+ * Purpose:demo,对应配置文件为application-ElasticJobServer1.yml
  */
 @SpringBootApplication
 public class ElasticJobBootMain {
