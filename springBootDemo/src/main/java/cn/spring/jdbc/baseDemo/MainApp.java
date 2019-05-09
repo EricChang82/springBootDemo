@@ -9,7 +9,7 @@ import cn.Util;
 
 public class MainApp {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring/jdbc/baseDemo/Beans.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("cn/spring/jdbc/baseDemo/Beans.xml");
         StudentJDBCTemplate studentJDBCTemplate = (StudentJDBCTemplate) context.getBean("studentJDBCTemplate");
         
 //        studentJDBCTemplate.create("Zara", 11);
