@@ -29,8 +29,10 @@ import org.quartz.impl.StdSchedulerFactory;
 public class ScheduleDemoForConcurrency {
     public static void main(String[] args) throws Exception {
 
-        startJob("job1", "trigger1", "job--1--参数", 2);
-//        startJob("job2", "trigger2", "job--2--参数", 1);
+        HelloJobForConcurrency  job1 =new HelloJobForConcurrency();
+        HelloJobForConcurrency  job2 =new HelloJobForConcurrency();
+        startJob(job1, "job1", "trigger1", "jobMessage:(job-1)", 2);
+//        startJob(job2, "job2", "trigger2", "jobMessage:(job-2)", 2);
         
         
     }
@@ -39,17 +41,18 @@ public class ScheduleDemoForConcurrency {
      *@author changle
      *Create Time: 2019年4月22日 
      *Purpose:
+     * @param jobClass TODO
      * @param jobId TODO
      * @param triggerId TODO
      * @param jobMessage TODO
      * @param jobInterval TODO
      */
-    private static void startJob(String jobId, String triggerId, String jobMessage, int jobInterval) throws SchedulerException {
+    private static void startJob(HelloJobForConcurrency job, String jobId, String triggerId, String jobMessage, int jobInterval) throws SchedulerException {
         //调度器(Schedule)
         Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
         //任务实例(JobDetail)
-        JobDetail jobDetail = JobBuilder.newJob(HelloJobForConcurrency.class) //加载任务类(与hellJob进行绑定)
+        JobDetail jobDetail = JobBuilder.newJob(job.getClass()) //加载任务类(与hellJob进行绑定)
                 .withIdentity(jobId, "group1")//参数1：任务的名称(唯一实例) 参数2:任务组的名称
                 .usingJobData("message", jobMessage)
                 .build();//返回JobDetail(存放job相关变量以及可以设置相关属性)

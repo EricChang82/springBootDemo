@@ -125,6 +125,18 @@
 		</dependency>
 		<!-- Elastic Job END -->
 
+		<!-- freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
+		<!-- freemarker END -->
+		<!-- thymeleaf -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+    <!-- thymeleaf END -->
 	</dependencies>
 	<build>
 		<plugins>

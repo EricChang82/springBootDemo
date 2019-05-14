@@ -13,7 +13,25 @@ import org.quartz.JobDataMap;
  */
 
 public class Util {
-    
+    /**
+     *@author changle
+     *Create Time: 2019年5月14日 
+     *Purpose:
+     * @param jobInfo TODO
+     */
+    public static void exeOneJob(String jobInfo) {
+        String startTime = Util.getCurrentTimeStr();
+        long tid=Thread.currentThread().getId();
+//        long id = Util.getTimeMillis();
+        //        Util.print(Util.getCurrentTimeStr()+"||before"+message+",Id="+id);
+        try {
+            Thread.sleep(5000);
+            String endTime = Util.getCurrentTimeStr();
+            Util.print(jobInfo+"("+Util.getCurrentTimeStr() + ") 线程ID:"+tid  + " 开始时间:"+startTime+",结束时间:"+endTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public static void print(Object message) {
         System.out.println(message);
     }

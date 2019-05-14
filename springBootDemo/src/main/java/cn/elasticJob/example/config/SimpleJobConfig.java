@@ -45,21 +45,28 @@ public class SimpleJobConfig {
     //    }
     @Bean
     public JobScheduler simpleJobScheduler(final SimpleJob simpleJob, @Value("${simpleJob.cron}") final String cron, @Value("${simpleJob.shardingTotalCount}") final int shardingTotalCount, @Value("${simpleJob.shardingItemParameters}") final String shardingItemParameters) {
-        //        return new SpringJobScheduler(simpleJob, regCenter, getLiteJobConfiguration(simpleJob.getClass(), cron, shardingTotalCount, shardingItemParameters), jobEventConfiguration);
-        SpringJobScheduler springJobScheduler = new SpringJobScheduler(simpleJob, regCenter, getLiteJobConfiguration(simpleJob.getClass(), cron, shardingTotalCount, shardingItemParameters));
+        SpringSimpleJob job=  new SpringSimpleJob();
+        SpringJobScheduler springJobScheduler = new SpringJobScheduler(job, regCenter, getLiteJobConfiguration("job1",job.getClass(), cron, shardingTotalCount, shardingItemParameters));
+        springJobScheduler.init();
+        return springJobScheduler;
+    }
+//    @Bean
+    public JobScheduler simpleJobScheduler3(final SimpleJob simpleJob, @Value("${simpleJob.cron}") final String cron, @Value("${simpleJob.shardingTotalCount}") final int shardingTotalCount, @Value("${simpleJob.shardingItemParameters}") final String shardingItemParameters) {
+       
+        SpringSimpleJob2 job=  new SpringSimpleJob2();
+        SpringJobScheduler springJobScheduler = new SpringJobScheduler(job, regCenter, getLiteJobConfiguration("job3",job.getClass(), cron, shardingTotalCount, shardingItemParameters));
         springJobScheduler.init();
         return springJobScheduler;
     }
 
-    @Bean
+//    @Bean
     public JobScheduler simpleJobScheduler2(final SimpleJob simpleJob2, @Value("${simpleJob.cron}") final String cron, @Value("${simpleJob.shardingTotalCount}") final int shardingTotalCount, @Value("${simpleJob.shardingItemParameters}") final String shardingItemParameters) {
        
         //获得litejobconfiguration
-        LiteJobConfiguration litejobconfiguration = getLiteJobConfiguration(simpleJob2.getClass(), cron, shardingTotalCount, shardingItemParameters);
+        LiteJobConfiguration litejobconfiguration = getLiteJobConfiguration("job2",simpleJob2.getClass(), cron, shardingTotalCount, shardingItemParameters);
 
         //获得springJobScheduler
         SpringJobScheduler springJobScheduler2 = new SpringJobScheduler(simpleJob2, regCenter, litejobconfiguration);
-
         //执行初始化
         springJobScheduler2.init();
 
@@ -72,7 +79,7 @@ public class SimpleJobConfig {
      *Create Time: 2019年5月8日 
      *Purpose:获得了LiteJobConfiguration 
      */
-    private LiteJobConfiguration getLiteJobConfiguration(final Class<? extends SimpleJob> jobClass, final String cron, final int shardingTotalCount, final String shardingItemParameters) {
+    private LiteJobConfiguration getLiteJobConfiguration(String jobInfo,final Class<? extends SimpleJob> jobClass, final String cron, final int shardingTotalCount, final String shardingItemParameters) {
 
         //获得JobCoreConfiguration
         JobCoreConfiguration jobcoreconfiguration = JobCoreConfiguration
@@ -80,10 +87,10 @@ public class SimpleJobConfig {
                     .shardingItemParameters(shardingItemParameters)
                     .failover(true)  //是否开启任务执行失效转移，开启表示如果作业在一次任务执行中途宕机，允许将该次未完成的任务在另一作业节点上补偿执行
                     .description("作业描述")
+                    .jobProperties("jobInfo", jobInfo)
                     .build();
         //获得SimpleJobConfiguration 
         SimpleJobConfiguration simplejobconfiguration = new SimpleJobConfiguration(jobcoreconfiguration, jobClass.getCanonicalName());
-
         //返回LiteJobConfiguration
         return LiteJobConfiguration.newBuilder(simplejobconfiguration).overwrite(true).build();
     }
