@@ -17,6 +17,7 @@ import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 
 import cn.elasticJob.example.job.SpringSimpleJob;
 import cn.elasticJob.example.job.SpringSimpleJob2;
+import freemarker.core.ReturnInstruction.Return;
 
 @Configuration
 public class SimpleJobConfig {
@@ -45,10 +46,23 @@ public class SimpleJobConfig {
     //    }
     @Bean
     public JobScheduler simpleJobScheduler(final SimpleJob simpleJob, @Value("${simpleJob.cron}") final String cron, @Value("${simpleJob.shardingTotalCount}") final int shardingTotalCount, @Value("${simpleJob.shardingItemParameters}") final String shardingItemParameters) {
-        SpringSimpleJob job=  new SpringSimpleJob();
-        SpringJobScheduler springJobScheduler = new SpringJobScheduler(job, regCenter, getLiteJobConfiguration("job1",job.getClass(), cron, shardingTotalCount, shardingItemParameters));
+        SpringSimpleJob job1=  new SpringSimpleJob();
+        SpringJobScheduler springJobScheduler = getSpringJobScheduler("job1", job1, shardingTotalCount, shardingItemParameters, cron); 
         springJobScheduler.init();
+        SpringSimpleJob2 job2=  new SpringSimpleJob2();
+        SpringJobScheduler springJobScheduler2 = getSpringJobScheduler("job2", job2, 1, shardingItemParameters, cron);
+        springJobScheduler2.init();
         return springJobScheduler;
+    }
+
+    /**
+     *@author changle
+     *Create Time: 2019年5月15日 
+     *Purpose:
+     * @param jobInfo TODO
+     */
+    private SpringJobScheduler getSpringJobScheduler(String jobInfo, SimpleJob job2, final int shardingTotalCount, final String shardingItemParameters, final String cron) {
+        return new SpringJobScheduler(job2, regCenter, getLiteJobConfiguration(jobInfo,job2.getClass(), cron, shardingTotalCount, shardingItemParameters));
     }
 //    @Bean
     public JobScheduler simpleJobScheduler3(final SimpleJob simpleJob, @Value("${simpleJob.cron}") final String cron, @Value("${simpleJob.shardingTotalCount}") final int shardingTotalCount, @Value("${simpleJob.shardingItemParameters}") final String shardingItemParameters) {
@@ -87,11 +101,12 @@ public class SimpleJobConfig {
                     .shardingItemParameters(shardingItemParameters)
                     .failover(true)  //是否开启任务执行失效转移，开启表示如果作业在一次任务执行中途宕机，允许将该次未完成的任务在另一作业节点上补偿执行
                     .description("作业描述")
-                    .jobProperties("jobInfo", jobInfo)
+                    .jobParameter(jobInfo)
                     .build();
         //获得SimpleJobConfiguration 
         SimpleJobConfiguration simplejobconfiguration = new SimpleJobConfiguration(jobcoreconfiguration, jobClass.getCanonicalName());
         //返回LiteJobConfiguration
-        return LiteJobConfiguration.newBuilder(simplejobconfiguration).overwrite(true).build();
+        LiteJobConfiguration litejobconfiguration= LiteJobConfiguration.newBuilder(simplejobconfiguration).overwrite(true).build();
+        return  litejobconfiguration;
     }
 }

@@ -25,10 +25,10 @@ public class Util {
 //        long id = Util.getTimeMillis();
         //        Util.print(Util.getCurrentTimeStr()+"||before"+message+",Id="+id);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
             String endTime = Util.getCurrentTimeStr();
-            Util.print(jobInfo+"("+Util.getCurrentTimeStr() + ") 线程ID:"+tid  + " 开始时间:"+startTime+",结束时间:"+endTime);
-        } catch (InterruptedException e) {
+            Util.print("("+Util.getCurrentTimeStr() + ")"+","+jobInfo+",线程ID:"+tid  + ",开始时间:"+startTime+",结束时间:"+endTime);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -50,7 +50,7 @@ public class Util {
      *Purpose:
      */
     public static String getFormatDateTime(Date date) {
-        SimpleDateFormat sfDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sfDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
         String ftime =sfDateFormat.format(date);
         return ftime;
     }

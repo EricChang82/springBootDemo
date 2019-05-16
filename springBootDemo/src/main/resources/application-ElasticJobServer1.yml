@@ -8,8 +8,8 @@ regCenter:
   
 simpleJob:
   cron: 0/2 * * * * ?
-  shardingTotalCount: 1
-  shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+  shardingTotalCount: 2
+  shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou,3=Shanghai
   
 dataflowJob:
   cron: 0/5 * * * * ?
