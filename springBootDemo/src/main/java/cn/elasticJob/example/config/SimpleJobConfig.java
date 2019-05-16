@@ -47,11 +47,11 @@ public class SimpleJobConfig {
     @Bean
     public JobScheduler simpleJobScheduler(final SimpleJob simpleJob, @Value("${simpleJob.cron}") final String cron, @Value("${simpleJob.shardingTotalCount}") final int shardingTotalCount, @Value("${simpleJob.shardingItemParameters}") final String shardingItemParameters) {
         SpringSimpleJob job1=  new SpringSimpleJob();
-        SpringJobScheduler springJobScheduler = getSpringJobScheduler("job1", job1, shardingTotalCount, shardingItemParameters, cron); 
-        springJobScheduler.init();
         SpringSimpleJob2 job2=  new SpringSimpleJob2();
-        SpringJobScheduler springJobScheduler2 = getSpringJobScheduler("job2", job2, 1, shardingItemParameters, cron);
+        SpringJobScheduler springJobScheduler2 = getSpringJobScheduler("job2", job2, 10, shardingItemParameters, cron);
         springJobScheduler2.init();
+        SpringJobScheduler springJobScheduler = getSpringJobScheduler("job22", job1, 10, shardingItemParameters, cron); 
+        springJobScheduler.init();
         return springJobScheduler;
     }
 

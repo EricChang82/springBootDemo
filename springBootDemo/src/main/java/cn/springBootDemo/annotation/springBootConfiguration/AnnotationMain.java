@@ -14,6 +14,7 @@ public class AnnotationMain {
 
     @SuppressWarnings("rawtypes")
     public static void main(String[] args) {
+        
         ConfigurableApplicationContext context = SpringApplication.run(AnnotationMain.class, args);
         Map map = (Map) context.getBean("createMap"); //注意这里直接获取到这个方法bean
         int age = (int) map.get("age");
