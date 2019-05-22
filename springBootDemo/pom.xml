@@ -106,8 +106,8 @@
 			<artifactId>curator-framework</artifactId> <version>4.0.1</version> </dependency> 
 			<dependency> <groupId>org.apache.curator</groupId> <artifactId>curator-client</artifactId> 
 			<version>4.0.1</version> </dependency> Curator -->
+	
 		<!-- Elastic Job -->
-
 		<dependency>
 			<groupId>com.dangdang</groupId>
 			<artifactId>elastic-job-lite-core</artifactId>
@@ -137,6 +137,44 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
     <!-- thymeleaf END -->
+    
+    
+    <!-- EasyExcel START -->
+         <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.14</version>
+        </dependency>
+    <!-- EasyExcel END -->
+    <!-- DBCP START -->
+         <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+              <version>1.4</version>
+        </dependency>
+    <!-- DBCP END -->
+    
 	</dependencies>
 	<build>
 		<plugins>

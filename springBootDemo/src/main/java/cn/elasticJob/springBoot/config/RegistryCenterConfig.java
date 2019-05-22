@@ -1,5 +1,5 @@
 
-package cn.elasticJob.example.config;
+package cn.elasticJob.springBoot.config;
 
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;

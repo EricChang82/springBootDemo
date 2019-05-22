@@ -1,5 +1,5 @@
 
-package cn.elasticJob.example.config;
+package cn.elasticJob.springBoot.config;
 
 import javax.annotation.Resource;
 
@@ -15,8 +15,8 @@ import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
 import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 
-import cn.elasticJob.example.job.SpringSimpleJob;
-import cn.elasticJob.example.job.SpringSimpleJob2;
+import cn.elasticJob.jobs.SpringSimpleJob;
+import cn.elasticJob.jobs.SpringSimpleJob2;
 import freemarker.core.ReturnInstruction.Return;
 
 @Configuration

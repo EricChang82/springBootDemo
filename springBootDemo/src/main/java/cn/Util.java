@@ -2,6 +2,8 @@ package cn;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.quartz.JobDataMap;
@@ -21,20 +23,22 @@ public class Util {
      */
     public static void exeOneJob(String jobInfo) {
         String startTime = Util.getCurrentTimeStr();
-        long tid=Thread.currentThread().getId();
-//        long id = Util.getTimeMillis();
+        long tid = Thread.currentThread().getId();
+        //        long id = Util.getTimeMillis();
         //        Util.print(Util.getCurrentTimeStr()+"||before"+message+",Id="+id);
         try {
-            Thread.sleep(10000);
+//            Thread.sleep(10000);
             String endTime = Util.getCurrentTimeStr();
-            Util.print("("+Util.getCurrentTimeStr() + ")"+","+jobInfo+",线程ID:"+tid  + ",开始时间:"+startTime+",结束时间:"+endTime);
+            Util.print("(" + Util.getCurrentTimeStr() + ")" + "," + jobInfo + ",线程ID:" + tid + ",开始时间:" + startTime + ",结束时间:" + endTime);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public static void print(Object message) {
         System.out.println(message);
     }
+
     /**
      *@author changle
      *Create Time: 2019年4月19日 
@@ -44,6 +48,7 @@ public class Util {
         String ftime = getFormatDateTime(date);
         Util.print(ftime);
     }
+
     /**
      *@author changle
      *Create Time: 2019年4月19日 
@@ -51,21 +56,23 @@ public class Util {
      */
     public static String getFormatDateTime(Date date) {
         SimpleDateFormat sfDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
-        String ftime =sfDateFormat.format(date);
+        String ftime = sfDateFormat.format(date);
         return ftime;
     }
+
     /**
      *@author changle
      *Create Time: 2019年4月19日 
      *Purpose:
      */
     public static void printCurrentTime() {
-         Util.getFormatDateTime(new Date());
+        System.out.println(Util.getFormatDateTime(new Date()));
     }
-    
+
     public static String getCurrentTimeStr() {
         return getFormatDateTime(new Date());
     }
+
     /**
      *@author changle
      *Create Time: 2019年4月22日 
@@ -78,22 +85,31 @@ public class Util {
         }
         System.out.println("遍历 map ---END");
     }
-    
+    public static void printMap2(Map<String, Object> map) {
+        System.out.println("遍历map --START");
+        Util.print("通过Map.entrySet遍历key和value");
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+         Util.print("key= " + entry.getKey() + " and value= " + entry.getValue());
+        }
+        System.out.println("遍历 map ---END");
+    }
+
     /**
      *@author changle
      *Create Time: 2019年4月22日 
      *Purpose:
      */
-    public static  long getTimeMillis() {
+    public static long getTimeMillis() {
         return System.currentTimeMillis();
     }
+
     /**
      *@author changle
      *Create Time: 2019年4月22日 
      *Purpose:
      */
     public static void printTimeMillis() {
-       Util.print(System.currentTimeMillis());
+        Util.print(System.currentTimeMillis());
 
     }
 }

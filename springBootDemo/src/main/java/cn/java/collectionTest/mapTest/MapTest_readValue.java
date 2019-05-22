@@ -6,7 +6,7 @@ import java.util.Map;
 
 import cn.Util;
 
-public class MapTest{
+public class MapTest_readValue{
      public static void main(String[] args) {
       Map<String, String> map = new HashMap<String, String>();
       map.put("1", "value1");

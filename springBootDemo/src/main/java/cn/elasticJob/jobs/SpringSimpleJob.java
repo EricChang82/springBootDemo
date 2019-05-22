@@ -1,12 +1,14 @@
 
-package cn.elasticJob.example.job;
+package cn.elasticJob.jobs;
+
+import org.quartz.DisallowConcurrentExecution;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
 
 import cn.Util;
-
-public class SpringSimpleJob2 implements SimpleJob {
+@DisallowConcurrentExecution 
+public class SpringSimpleJob implements SimpleJob {
     @Override
     public void execute(final ShardingContext shardingContext) {
         String shardingparameter = shardingContext.getShardingParameter();
