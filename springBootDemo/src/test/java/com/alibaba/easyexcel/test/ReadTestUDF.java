@@ -24,11 +24,7 @@ import cn.Util;
 
 public class ReadTestUDF {
 
-    //     若是有空行的话，还是会读取出来
-    //    [WWWWW, 001-001-01-01, 001-001-01-01, 001-001-01-01, 存储库位, 正常, 地面平仓, 其他, , 中速周转, 002存储库区, 002区域, , FLUX库位组1, FLUX库位组2, , , , , , , , , , 0, , , , , , , , , , , , N, N, N, , , , , ]
-    //            [WWWWW, 001-001-01-02, 001-001-01-02, 001-001-01-02, 存储库位, 正常, 地面平仓, 其他, , 中速周转, 002存储库区, 002区域, , FLUX库位组1, FLUX库位组2, , , , , , , , , , 0, , , , , , , , , , , , N, N, N, , , , , ]
-    //            [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, , , , , , , , , , 0, , , , , , , , , , , , N, N, N, , , , , ]
-    //            [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, , , , , , , , , , 0, , , , , , , , , , , , N, N, N, , , , , ]
+//    中间或最后多余空行的不会被读取
     /**
      * 07版本excel读数据量大于1千行，内部采用回调方法.
      *
@@ -54,8 +50,9 @@ public class ReadTestUDF {
             public void invoke(Object object, AnalysisContext context) {
                 ArrayList<String> dataListForRow=((ArrayList<String>)object);
                 //#1S-业务逻辑处理-S
+                int rowNum =context.getCurrentRowNum();
                 Util.print("获得参数:" + paraMapForLineProcess.get("orderNo"));
-                System.out.println(dataListForRow);
+                System.out.println("行："+rowNum+"==>"+dataListForRow);
                 //#2E-业务逻辑处理-E 
             }
 
