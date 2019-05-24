@@ -25,6 +25,7 @@ public class ExcelListenerUDF extends AnalysisEventListener<Object> {
     @Override
     public void doAfterAllAnalysed(AnalysisContext context) {
         doSomething();
+        
     }
     public void doSomething(){
         for (Object o:data) {

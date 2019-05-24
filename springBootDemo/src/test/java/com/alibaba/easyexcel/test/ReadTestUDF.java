@@ -44,18 +44,33 @@ public class ReadTestUDF {
         HashMap<String, String> paraMapForLineProcess = new HashMap<String, String>();
         paraMapForLineProcess.put("orderNo", "1111");
         //#2E-传参-E 
-        readSheetOfExcel(fileInputStream, 1, new ExcelListenerUDF() {
+    
+        readSheetOfExcel(fileInputStream,1, new ExcelListenerUDF() {
+            int totleNum=0;
             @SuppressWarnings("unchecked")
             @Override
             public void invoke(Object object, AnalysisContext context) {
                 ArrayList<String> dataListForRow=((ArrayList<String>)object);
                 //#1S-业务逻辑处理-S
                 int rowNum =context.getCurrentRowNum();
+//                int totleNum =context.getTotalCount().intValue();
                 Util.print("获得参数:" + paraMapForLineProcess.get("orderNo"));
                 System.out.println("行："+rowNum+"==>"+dataListForRow);
+                totleNum++;
                 //#2E-业务逻辑处理-E 
             }
-
+            @Override
+            public void doAfterAllAnalysed(AnalysisContext context) {
+//                int rowNum =context.getCurrentRowNum();
+                System.out.println(totleNum);
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+          
+            }
         });
 
         Util.print("读取完成");
@@ -75,6 +90,7 @@ public class ReadTestUDF {
             List<Sheet> sheets = excelReader.getSheets();
             for (Sheet sheet : sheets) {
                 if (sheet.getSheetNo() == sheetNumToRead) {
+                    Util.print("sheetNo:"+sheet.getSheetNo() +"startRow:"+sheet.getStartRow());
                     excelReader.read(sheet);
                     break;
                 }
