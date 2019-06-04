@@ -1,0 +1,5 @@
+[ERROR] 2019-06-04 16:23:45 [main] cn.log.slf4j.HelloWorld - Hello World --error
+[ERROR] 2019-06-04 16:27:38 [main] cn.log.slf4j.HelloWorld - Hello World --error
+[ERROR] 2019-06-04 16:28:17 [main] cn.log.slf4j.HelloWorld - Hello World --error
+[ERROR] 2019-06-04 16:28:58 [main] cn.log.slf4j.HelloWorld - Hello World --error
+[ERROR] 2019-06-04 16:30:39 [main] cn.log.slf4j.HelloWorld - Hello World --error
