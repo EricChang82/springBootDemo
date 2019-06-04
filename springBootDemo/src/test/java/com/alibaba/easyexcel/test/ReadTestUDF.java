@@ -1,5 +1,6 @@
 package com.alibaba.easyexcel.test;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.alibaba.easyexcel.test.listen.ExcelListener;
 import com.alibaba.easyexcel.test.listen.ExcelListenerUDF;
 import com.alibaba.easyexcel.test.model.ReadModel;
 import com.alibaba.easyexcel.test.model.ReadModel2;
@@ -23,6 +25,16 @@ import com.alibaba.excel.metadata.Sheet;
 import cn.Util;
 
 public class ReadTestUDF {
+    
+    
+    @Test
+    public void saxReadListStringV2003() throws IOException {
+       
+        FileInputStream fileInputStream = new FileInputStream("D:\\newProject\\WMS_V5_NEW\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp5\\wtpwebapps\\wmsv5-a10BasBizWeb\\import_temp_files\\201905271415\\1558937745827127_0_0_1\\BAS_EQUIPMENT.xls");
+        BufferedInputStream bufferedInputStream  = new BufferedInputStream(fileInputStream);        ExcelListener excelListener = new ExcelListener();
+        EasyExcelFactory.readBySax(bufferedInputStream, new Sheet(1, 1), excelListener);
+        fileInputStream.close();
+    }
 
 //    中间或最后多余空行的不会被读取
     /**
@@ -32,8 +44,9 @@ public class ReadTestUDF {
      */
     @Test
     public void saxReadListStringV2007() throws IOException {
+//        FileInputStream fileInputStream = new FileInputStream("D:\\\\newProject\\\\WMS_V5_NEW\\\\.metadata\\\\.plugins\\\\org.eclipse.wst.server.core\\\\tmp5\\\\wtpwebapps\\\\wmsv5-a10BasBizWeb\\\\import_temp_files\\\\201905271415\\\\1558937745827127_0_0_1\\\\BAS_EQUIPMENT.xls");
         FileInputStream fileInputStream = new FileInputStream("E:\\1工作区\\库位1.xlsx");
-        
+//          BufferedInputStream bufferedInputStream  = new BufferedInputStream(fileInputStream); 
  
 
         //读取第一个sheet的内容
@@ -53,7 +66,7 @@ public class ReadTestUDF {
                 ArrayList<String> dataListForRow=((ArrayList<String>)object);
                 //#1S-业务逻辑处理-S
                 int rowNum =context.getCurrentRowNum();
-//                int totleNum =context.getTotalCount().intValue();
+                int totleNum =context.getTotalCount().intValue();
                 Util.print("获得参数:" + paraMapForLineProcess.get("orderNo"));
                 System.out.println("行："+rowNum+"==>"+dataListForRow);
                 totleNum++;
@@ -86,7 +99,8 @@ public class ReadTestUDF {
      */
     private void readSheetOfExcel(FileInputStream fileInputStream, int sheetNumToRead, ExcelListenerUDF excelProcessListener) {
         try {
-            ExcelReader excelReader = EasyExcelFactory.getReader(fileInputStream, excelProcessListener);
+            BufferedInputStream bufferedInputStream  = new BufferedInputStream(fileInputStream); 
+            ExcelReader excelReader = EasyExcelFactory.getReader(bufferedInputStream, excelProcessListener);
             List<Sheet> sheets = excelReader.getSheets();
             for (Sheet sheet : sheets) {
                 if (sheet.getSheetNo() == sheetNumToRead) {
@@ -158,18 +172,18 @@ public class ReadTestUDF {
         inputStream.close();
     }
 
-    /**
-     * 03版本excel读数据量大于1千行数据，内部采用回调方法.
-     *
-     * @throws IOException 简单抛出异常，真实环境需要catch异常,同时在finally中关闭流
-     */
-    @Test
-    public void saxReadListStringV2003() throws IOException {
-        InputStream inputStream = FileUtil.getResourcesFileInputStream("2003.xls");
-        ExcelListenerUDF ExcelListenerUDF = new ExcelListenerUDF();
-        EasyExcelFactory.readBySax(inputStream, new Sheet(2, 1), ExcelListenerUDF);
-        inputStream.close();
-    }
+//    /**
+//     * 03版本excel读数据量大于1千行数据，内部采用回调方法.
+//     *
+//     * @throws IOException 简单抛出异常，真实环境需要catch异常,同时在finally中关闭流
+//     */
+//    @Test
+//    public void saxReadListStringV2003() throws IOException {
+//        InputStream inputStream = FileUtil.getResourcesFileInputStream("2003.xls");
+//        ExcelListenerUDF ExcelListenerUDF = new ExcelListenerUDF();
+//        EasyExcelFactory.readBySax(inputStream, new Sheet(2, 1), ExcelListenerUDF);
+//        inputStream.close();
+//    }
 
     /**
      * 00版本excel读取sheet
