@@ -11,6 +11,7 @@ public class TreeMapSort {
             @Override
             public int compare(String o1, String o2) {
                 int retValue=Integer.parseInt(o1)-Integer.parseInt(o2);
+                System.out.println(retValue);
                 return retValue;
             }
 
@@ -18,8 +19,8 @@ public class TreeMapSort {
         map.put("1", "a");
         map.put("3", "a");
         map.put("4", "a");
-        map.put("5", "a");
-        map.put("2", "a");
+//        map.put("5", "a");
+//        map.put("2", "a");
         
         Util.printMap2(map);
     }

@@ -19,6 +19,8 @@ package cn.elasticJob.java;
 
 import java.io.IOException;
 
+import org.quartz.Job;
+
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
 import com.dangdang.ddframe.job.lite.api.JobScheduler;
@@ -44,14 +46,50 @@ public final class JavaMain {
 
     
     public static void main(final String[] args) throws IOException {
-        CoordinatorRegistryCenter regCenter = setUpRegistryCenter();
-        JobCoreConfiguration coreConfig = JobCoreConfiguration.newBuilder("SpringSimpleJob", "0/2 * * * * ?", 2).shardingItemParameters("0=Beijing,1=Shanghai,2=Guangzhou").build();
-        SimpleJobConfiguration simpleJobConfig = new SimpleJobConfiguration(coreConfig, SpringSimpleJob.class.getCanonicalName());
+        
+        //#1S-相关配置定义-S
+        Class<? extends Job> jobClass = (Class<? extends Job>) SpringSimpleJob.class;
+        String jobName = "SpringSimpleJob";
+        int shardingTotalCount = 2;
+        String cronStr = "0/2 * * * * ?";
+        String shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou";
+        String zookeeperConnectionString = ZOOKEEPER_CONNECTION_STRING;
+        String jobNamespace = JOB_NAMESPACE;
+        //#2E-相关配置定义-E 
+
+        CoordinatorRegistryCenter regCenter =initRegistryCenter(zookeeperConnectionString, jobNamespace);
+        startElasticJob(jobClass,jobName, cronStr, regCenter, shardingItemParameters, shardingTotalCount);
+    }
+
+
+    /**Purpose: 开始job
+     * @author changle
+     * Create Time: 2019年6月5日 
+     * Version: 1.0
+     * @param jobClass TODO
+     * @param jobName TODO
+     * @param cronStr TODO
+     * @param shardingItemParameters TODO
+     * @param shardingTotalCount TODO
+     * @param zookeeperConnInfo TODO
+     * @param jobNameSpace TODO
+     */
+    private static void startElasticJob(Class<? extends Job> jobClass,String jobName, String cronStr, CoordinatorRegistryCenter regCenter, String shardingItemParameters, int shardingTotalCount) {
+        JobCoreConfiguration coreConfig = JobCoreConfiguration.newBuilder(jobName, cronStr, shardingTotalCount).shardingItemParameters(shardingItemParameters).build();
+        SimpleJobConfiguration simpleJobConfig = new SimpleJobConfiguration(coreConfig, jobClass.getCanonicalName());
         new JobScheduler(regCenter, LiteJobConfiguration.newBuilder(simpleJobConfig).build()).init();
     }
-    
-    private static CoordinatorRegistryCenter setUpRegistryCenter() {
-        ZookeeperConfiguration zkConfig = new ZookeeperConfiguration(ZOOKEEPER_CONNECTION_STRING, JOB_NAMESPACE);
+    /**
+     * Purpose:获得zookeeper注册中心
+     * @author changle
+     * Create Time: 2019年6月5日 
+     * @param zookeeperConnInfo
+     * @param jobNameSpace
+     * @return
+     * Version: 1.0
+     */
+    private static CoordinatorRegistryCenter initRegistryCenter(String zookeeperConnInfo, String jobNameSpace) {
+        ZookeeperConfiguration zkConfig = new ZookeeperConfiguration(zookeeperConnInfo, jobNameSpace);
         CoordinatorRegistryCenter result = new ZookeeperRegistryCenter(zkConfig);
         result.init();
         return result;

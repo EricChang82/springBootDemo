@@ -1,9 +1,8 @@
 package cn;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.quartz.JobDataMap;
@@ -15,6 +14,23 @@ import org.quartz.JobDataMap;
  */
 
 public class Util {
+    public static boolean isNotNull(String value) {
+        boolean isNull = false;
+        if (value != null && value.trim().length() > 0) {
+            isNull = true;
+        }
+        return isNull;
+    }
+    public static boolean isNull(String value) {
+        return !isNotNull(value);
+    }
+    public static int parse2IntValue(String valueString) {
+        if (isNull(valueString)) {
+            return 0;
+        }
+          BigDecimal aBigDecimal = new BigDecimal(valueString);
+          return aBigDecimal.intValue();
+    }
     /**
      *@author changle
      *Create Time: 2019年5月14日 
