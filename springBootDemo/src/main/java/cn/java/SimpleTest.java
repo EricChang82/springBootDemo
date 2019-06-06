@@ -7,8 +7,8 @@ public class SimpleTest {
         System.out.println(isValidPassword("a2"));
         System.out.println(isValidPassword("c32"));
         System.out.println(isValidPassword("ce32"));
-        System.out.println(isValidPassword("cR32"));
-        System.out.println(isValidPassword("AF32"));
+        System.out.println(isValidPassword("cR32@#@"));
+        System.out.println(isValidPassword("AF32#"));
     }
 
     public static boolean isValidPassword(String value) {
