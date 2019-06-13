@@ -14,10 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ControllerDemo {
 
-    
+   /**
+    * Purpose: 注意跳转到html，也需要在pom 中加上thymeleaf的依赖
+    * @author changle
+    * Create Time: 2019年6月13日 
+    * @return
+    * Version: 1.0
+    */
     @GetMapping("/view_htmlTest")
     public String  htmlTest() {
-      //访问templates下的html，也需要在pom 中加上thymeleaf的依赖
+   
        return "htmlTest";  //或返回：   return "htmlTest.html";  
     }
     @GetMapping("/ftlTest")
