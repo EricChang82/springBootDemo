@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ControllerDemo {
 
     
-    @GetMapping("/htmlTest")
+    @GetMapping("/view_htmlTest")
     public String  htmlTest() {
-       return "htmlTest";
+      //访问templates下的html，也需要在pom 中加上thymeleaf的依赖
+       return "htmlTest";  //或返回：   return "htmlTest.html";  
     }
     @GetMapping("/ftlTest")
     public String  ftlTest() {
