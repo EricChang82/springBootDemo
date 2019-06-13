@@ -22,13 +22,14 @@ public class ControllerDemo {
     */
     @GetMapping("/view_htmlTest")
     public String  htmlTest() {
-   
        return "htmlTest";  //或返回：   return "htmlTest.html";  
     }
+    
     @GetMapping("/ftlTest")
     public String  ftlTest() {
         return "ftlTest";
     }
+    
     @GetMapping("/ftlTestPara")
     public String  ftlTestPara(Map<String, Object> paraMap) {
         paraMap.put("name", "张三");
