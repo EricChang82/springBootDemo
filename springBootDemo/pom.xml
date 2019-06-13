@@ -13,7 +13,6 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.4.RELEASE</version>
 	</parent>
-
 	<dependencies>
 
 		<dependency>
@@ -97,12 +96,12 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.14</version>  <!-- sprintboot引入的是logback，zookeeper引入的是log4j12。两个冲突，故这里排除掉，用较新的logback -->
-			   <exclusions>
-	        <exclusion>
-	         <groupId>org.slf4j</groupId>
-	         <artifactId>slf4j-log4j12</artifactId>
-          </exclusion>  
-   </exclusions>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- Zookeeper -->
 
@@ -112,7 +111,7 @@
 			<artifactId>curator-framework</artifactId> <version>4.0.1</version> </dependency> 
 			<dependency> <groupId>org.apache.curator</groupId> <artifactId>curator-client</artifactId> 
 			<version>4.0.1</version> </dependency> Curator -->
-	
+
 		<!-- Elastic Job -->
 		<dependency>
 			<groupId>com.dangdang</groupId>
@@ -140,46 +139,52 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>2.1.5.RELEASE</version>
 		</dependency>
-    <!-- thymeleaf END -->
-    
-    
-    <!-- EasyExcel START -->
-         <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.17</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-compress</artifactId>
-            <version>1.14</version>
-        </dependency>
-    <!-- EasyExcel END -->
-    <!-- DBCP START -->
-         <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-              <version>1.4</version>
-        </dependency>
-    <!-- DBCP END -->
-    
+		<dependency>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.22</version>
+		</dependency>
+		<!-- thymeleaf END -->
+
+
+		<!-- EasyExcel START -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.17</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.14</version>
+		</dependency>
+		<!-- EasyExcel END -->
+		<!-- DBCP START -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<!-- DBCP END -->
+
 	</dependencies>
 	<build>
 		<plugins>

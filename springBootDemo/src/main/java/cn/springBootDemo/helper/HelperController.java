@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +29,10 @@ public class HelperController {
     WebApplicationContext applicationContext;
 
     @GetMapping("/getAllUrl")
-    public Object getAllUrl(List<Map<String, String>> list ) {
+    public Object getAllUrl() {
+        
+        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+        
         RequestMappingHandlerMapping mapping = applicationContext.getBean(RequestMappingHandlerMapping.class);
         // 获取url与类和方法的对应信息
         Map<RequestMappingInfo, HandlerMethod> map = mapping.getHandlerMethods();
