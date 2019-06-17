@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
@@ -28,11 +29,12 @@ public class HelperController {
     @Autowired
     WebApplicationContext applicationContext;
 
-    @GetMapping("/getAllUrl")
-    public Object getAllUrl() {
-        
+//    @GetMapping("/showAllUrls")
+    @GetMapping("/")
+    public Object getAllUrl(Model model) {
+        model.addAttribute("name", "所有URL");
         List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        
+
         RequestMappingHandlerMapping mapping = applicationContext.getBean(RequestMappingHandlerMapping.class);
         // 获取url与类和方法的对应信息
         Map<RequestMappingInfo, HandlerMethod> map = mapping.getHandlerMethods();
@@ -54,23 +56,9 @@ public class HelperController {
             list.add(map1);
         }
 
-        return "mappingList";
+        model.addAttribute("list", list);
+
+        return "showAllUrls";
     }
 
-//    @GetMapping("/getAllUrl")
-    public List<String> getAllUrl2() {
-        RequestMappingHandlerMapping mapping = applicationContext.getBean(RequestMappingHandlerMapping.class);
-        //获取url与类和方法的对应信息
-        Map<RequestMappingInfo, HandlerMethod> map = mapping.getHandlerMethods();
-        List<String> urlList = new ArrayList<>();
-        for (RequestMappingInfo info : map.keySet()) {
-            //获取url的Set集合，一个方法可能对应多个url
-            Set<String> patterns = info.getPatternsCondition().getPatterns();
-            for (String url : patterns) {
-                urlList.add(url);
-            }
-        }
-        return urlList;
-
-    }
 }

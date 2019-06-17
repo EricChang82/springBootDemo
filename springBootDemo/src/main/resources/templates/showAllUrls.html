@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(title=~{::title/text()})">
+<title>所有URL</title>
+</head>
+<body>
+
+	<div class="container">
+
+		<nav th:fragment="navbar" class="navbar navbar-dark bg-primary">
+			<span class="navbar-brand" th:text="${name}"></span>
+		</nav>
+
+	</div>
+	<p></p>
+    <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>类名</th>
+                        <th>URL</th>
+                        <th>类型</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="mylist : ${list}">
+                        <td th:text="${mylist.className}">className</td>
+                        <td><a  th:href="@{${mylist.url}}" th:text="${mylist.url}">URL</a></td>
+                        <td th:text="${mylist.type}">type</td>
+                    </tr>
+                </tbody>
+            </table>
+
+</body>
+</html>

@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Thymeleaf 示例</title>
-    </head> 
-    <body>
-        <p>
-            Thymeleaf 示例 <span th:text="${name}"></span>!
-        </p>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Thymeleaf 示例</title>
+</head>
+<body>
+	<p>
+		Thymeleaf 示例 <span th:text="${name}"></span>
+	</p>
+
+	<p>
+		<a th:href="@{${name}}" th:text="${name}"></a>
+	</p>
+
+	<th:block th:each="mylist,iterStat:${list}">
+		<th:block th:if="${iterStat.index le 1}">
+			<a th:href="@{${mylist}}" th:text="${mylist}"></a>
+		</th:block>
+	</th:block>
+	
+
+</body>
 </html>

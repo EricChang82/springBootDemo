@@ -10,10 +10,10 @@ public class BaseDemoController {
     @Value("${project.udf01}")
     private String  msg;
 //	@RequestMapping("/hello")
-    @GetMapping("/")  
-	public String hello() {
-		return "启动正常===>BaseDemoController "+msg;
-	}
+//    @GetMapping("/")  
+//	public String hello() {
+//		return "启动正常===>BaseDemoController "+msg;
+//	}
     @GetMapping("/getPara/{para}")
     public String getPara(@PathVariable("para") String para) {
         return "获得传参："+para;
