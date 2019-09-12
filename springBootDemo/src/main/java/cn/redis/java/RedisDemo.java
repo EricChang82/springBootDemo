@@ -18,7 +18,7 @@ public class RedisDemo {
     public static void main(String[] args) {
 
         //#1S-定义连接信息-S
-        String ADDR = "47.102.143.3"; //服务器IP地址
+        String ADDR = "47.102.143.3"; //服务器IP地址  test9
         int PORT = 63801; //端口
         String password = "mwmQQn7TG13DdEqVReids";//密码
         int MAX_ACTIVE = 1024; //连接实例的最大连接数
