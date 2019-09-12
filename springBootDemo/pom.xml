@@ -187,7 +187,14 @@
 			<version>1.4</version>
 		</dependency>
 		<!-- DBCP END -->
-
+		
+		  <!-- REDIS START -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <!-- REDIS END -->
+  
 	</dependencies>
 	<build>
 		<plugins>
