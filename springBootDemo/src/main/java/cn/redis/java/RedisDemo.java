@@ -38,9 +38,10 @@ public class RedisDemo {
         //#2E-获得JedisPoolConfig-E 
         
         //#1S-获得jedis连接-S
-        //普通模式
+       
+        //1==普通模式
         JedisPool jedisPool = new JedisPool(config, ADDR, PORT, TIMEOUT, password, DEFAULT_DATABASE);
-         //哨兵模式  test9端口不通，待测试
+         //2==哨兵模式  test9端口不通，待测试
         Set<String> sentinels = new HashSet<String>(Arrays.asList("192.168.11.128:6379", "192.168.11.129:6379", "192.168.11.130:6379"));
         JedisSentinelPool pool = new JedisSentinelPool("mymaster", sentinels, config, password);
         //#2E-获得jedis连接-E 
