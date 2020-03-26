@@ -14,6 +14,26 @@ import org.quartz.JobDataMap;
  */
 
 public class Util {
+    /**Purpose:获得执行耗时
+     * @author changle
+     * Create Time: 2019年10月8日 
+     * Version: 1.0
+     */
+    public static void getTimeEnd(long sTime1) {
+        long result = System.currentTimeMillis() - sTime1;
+        System.out.println("耗时： " + result);
+
+    }
+
+    /**Purpose:标记开始时间
+     * @author changle
+     * Create Time: 2019年10月8日 
+     * Version: 1.0
+     */
+    public static long getTimeStart() {
+        return System.currentTimeMillis();
+    }
+
     public static boolean isNotNull(String value) {
         boolean isNull = false;
         if (value != null && value.trim().length() > 0) {
@@ -21,16 +41,19 @@ public class Util {
         }
         return isNull;
     }
+
     public static boolean isNull(String value) {
         return !isNotNull(value);
     }
+
     public static int parse2IntValue(String valueString) {
         if (isNull(valueString)) {
             return 0;
         }
-          BigDecimal aBigDecimal = new BigDecimal(valueString);
-          return aBigDecimal.intValue();
+        BigDecimal aBigDecimal = new BigDecimal(valueString);
+        return aBigDecimal.intValue();
     }
+
     /**
      *@author changle
      *Create Time: 2019年5月14日 
@@ -43,7 +66,7 @@ public class Util {
         //        long id = Util.getTimeMillis();
         //        Util.print(Util.getCurrentTimeStr()+"||before"+message+",Id="+id);
         try {
-//            Thread.sleep(10000);
+            //            Thread.sleep(10000);
             String endTime = Util.getCurrentTimeStr();
             Util.print("(" + Util.getCurrentTimeStr() + ")" + "," + jobInfo + ",线程ID:" + tid + ",开始时间:" + startTime + ",结束时间:" + endTime);
         } catch (Exception e) {
@@ -101,11 +124,12 @@ public class Util {
         }
         System.out.println("遍历 map ---END");
     }
+
     public static void printMap2(Map<String, Object> map) {
         System.out.println("遍历map --START");
         Util.print("通过Map.entrySet遍历key和value");
         for (Map.Entry<String, Object> entry : map.entrySet()) {
-         Util.print("key= " + entry.getKey() + " and value= " + entry.getValue());
+            Util.print("key= " + entry.getKey() + " and value= " + entry.getValue());
         }
         System.out.println("遍历 map ---END");
     }

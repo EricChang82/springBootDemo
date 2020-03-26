@@ -2,6 +2,8 @@ package com.alibaba.easyexcel.test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.List;
 
 import org.junit.Test;
@@ -18,7 +20,17 @@ import cn.Util;
 
 public class ReadTest {
 
+    @Test
+    public void test000() throws Exception {
+        Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:mem:test2", "sa", "");
+        // add application code here
+        
+        
+        conn.close();
 
+        System.out.println("done");
+    }
     /**
      * 07版本excel读数据量少于1千行数据，内部采用回调方法.
      *
