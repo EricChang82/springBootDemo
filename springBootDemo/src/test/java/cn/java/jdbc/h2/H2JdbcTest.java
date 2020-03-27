@@ -18,7 +18,7 @@ import cn.Util;
 
 public class H2JdbcTest {
 
-    static String calssName = "org.h2.Driver";
+    static String className = "org.h2.Driver";
 //    static String url = "jdbc:h2:mem:test2";
     static String url = "jdbc:h2:~/test3";
     static String usr = "sa";
@@ -36,7 +36,7 @@ public class H2JdbcTest {
         Connection connection = null;
         Statement stnt =null;
         try {
-            Class.forName(calssName);
+            Class.forName(className);
             connection = DriverManager.getConnection(url, usr, psd);
 //            String crteatTalbeSql = " CREATE TABLE H2TEST2(ID INT PRIMARY KEY, ZONEGROUPLIST VARCHAR(255), ORDERCOUNT INT)";
             StringBuffer crteatTalbeSqlBuffer = new StringBuffer();
