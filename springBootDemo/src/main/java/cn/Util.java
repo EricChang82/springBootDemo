@@ -152,4 +152,7 @@ public class Util {
         Util.print(System.currentTimeMillis());
 
     }
+    public static void print(String str) {
+        System.out.println(str);
+    }
 }
