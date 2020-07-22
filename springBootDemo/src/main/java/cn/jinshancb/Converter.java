@@ -42,7 +42,7 @@ public class Converter {
         word = StringUtils.replaceAll(word, ",", "");
         word = StringUtils.replaceAll(word, "▽", "");
         word = StringUtils.replaceAll(word, "★", "");
-        word = StringUtils.replaceAll(word, "  v ", "");
+        word = StringUtils.replaceAll(word, "v ", "");
         word = StringUtils.replaceAll(word, "►", "");
         word = StringUtils.replaceAll(word, "7", "");
         word = StringUtils.replaceAll(word, "\\\\", "");
